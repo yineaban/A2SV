@@ -1,3 +1,4 @@
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -9,15 +10,18 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverselist=(head)=>{
-  let previous=0
-  curr=head
-  while(curr){
-    const next=curr.next
-    curr.next=previous
-    previous=curr
-    curr=next
 
-  }
-  return previous
-}
+var reverseList = function(head) {
+    if(!head) return null 
+    let temp = head.next 
+    head.next = null
+
+    while(temp){
+        let t = temp.next 
+        temp.next = head
+        head = temp
+        temp = t
+    }
+
+    return head
+};
